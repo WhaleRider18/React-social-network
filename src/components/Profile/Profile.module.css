@@ -1,0 +1,28 @@
+
+.profilecontent{ 
+    display: grid;
+    grid-template-areas:
+      'c1 c1'
+      'c2 c3';
+  
+    grid-template-columns: 30% 1fr;  
+    grid-template-rows: 1fr;
+    grid-column-gap: 30px;
+  
+  }
+  
+  .profilecontent > div:nth-of-type(1){
+      grid-area: c1;
+  }
+  
+  .profilecontent > div:nth-of-type(2){
+    grid-area: c2;
+  }
+  
+  .profilecontent > div:nth-of-type(3){
+    grid-area: c3;
+  } 
+  
+  .avatar img{
+    border-radius: 50%;
+  }

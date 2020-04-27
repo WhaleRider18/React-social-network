@@ -1,0 +1,101 @@
+.formControl{
+  background-color: #f6f7fb;
+  border: none;
+  display: block;
+  width: calc(100% - 1.5em);
+  padding: .375em .75em;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-clip: padding-box;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.formControl:focus{
+  outline-color: transparent;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.btn{
+  margin: 15px 0;
+  background-color: #4466f2;
+  border-color: #4466f2;
+  cursor: pointer;
+  color: white;
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btn:hover {
+  background-color: #143fef;
+  border-color: #143fef;
+}
+
+.btn:focus {
+  background-color: #143fef;
+  border-color: #143fef;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.btn:disabled{
+  cursor: auto;
+}
+
+.card{
+  margin-bottom: 30px;
+  border: 0;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  letter-spacing: .5px;
+  border-radius: 8px;
+  box-shadow: 1px 5px 24px 0 rgba(68,102,242,.05);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border-bottom: 1px solid #eee;
+}
+
+.cardHeader{
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom: 1px solid #eee;
+  padding: 1em;
+}
+
+.cardHeader h5{
+margin: 0;
+}
+
+.cardHeaderImage{
+background: url(http://react.pixelstrap.com/endless/static/media/social-image.24320ec9.png);
+background-size: cover;
+background-position: 30%;
+height: 300px;
+border-radius: 5px;
+padding: 0;
+border-bottom: none;
+}
+
+.cardContent{
+padding: 1em;
+}

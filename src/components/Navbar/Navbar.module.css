@@ -1,0 +1,81 @@
+.nav{
+    grid-area: nav;
+  
+    color: white;
+    background-color: #2F3C4E;
+    padding: 1em;
+  }
+  
+  .nav ul{
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .nav ul > li > a{
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    letter-spacing: .5px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    text-transform: capitalize;
+    font-weight: 600;
+    color: hsla(0,0%,100%,.85);
+    text-decoration: none;
+    transition: .3s;
+  }
+  
+  .nav ul > li > a svg{
+      width: 14px;
+      height: 14px;
+      margin-right: 14px;
+      stroke-width: 3px;
+      vertical-align: sub;
+  }
+  
+  .nav ul > li > a.active{
+    color: #fff;
+  }
+
+  .nav ul li a:hover{
+    color: #fff;
+    padding-left: 3px;
+    transition: .3s;
+  }
+
+  .friends{
+    margin-top: 40px;
+  }
+
+  .friends h4{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: hsla(0,0%,100%,.85);
+    margin: 0 0 15px 0;
+    font-size: .8em;
+  }
+
+  .friendBlock{
+    display: flex;
+    align-items: center;
+  }
+
+  .friendAvatar{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: green;
+  }
+
+  .friendName{
+    margin: 10px 0 10px 8px;
+    color: hsla(0,0%,100%,.85);
+  }
+
+  .online{
+    background: green;
+  }
+
+  .offline{
+    background: red;
+  }

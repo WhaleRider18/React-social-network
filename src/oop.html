@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ооп</title>
+    </head>
+    <body>
+        <script>
+            /*let man = {
+                name: 'Dmitriy',
+                age: '31',
+                sayName() {
+                    alert(this.name);
+                }
+            }
+            man.sayName();
+
+            let page = {
+                title: 'samuraiJS',
+                content: '',
+                render () {
+                    document.write(this.content);
+                }
+            }
+
+            let content = prompt('enter a content', '');
+            page.content = '<p>' + content + '</p>';
+            page.render();
+
+            let page2 = {
+                title: 'samuraiJS',
+                _content: ``,
+                setContent(content) {
+                    this._content = content;
+                },
+                getContent() {
+                    return this._content;
+                },
+                render : function(){
+                    document.write(this._content);
+                }
+            }
+
+            page2.setContent(`<div>Some text about this page</div>`);
+            console.log( page2.getContent() );
+            page2.render();
+
+            let store = {
+                _subscriber() {
+                    console.log('no subscribers(observers)');
+                },
+                _state: {
+                    firstName: 'it-incubator',
+                    lastName: 'it-amasutra'
+                },
+                getState() {
+                    return this._state;
+                },
+                subscribe(observer) {
+                    this._subscriber = observer;
+                },
+                setFirstName(value) {
+                    this._state.firstName = value;
+                    this._subscriber();
+                }
+            };
+
+            let state = store.getState();
+            store.setFirstName('nex it-incubator');
+            state = store.getState();
+
+           /* store.subscribe( () => {
+                debugger;
+                let state = store.getState();
+                renderPage(state);
+            }); 
+
+            store.setFirstName('youtube.com'); */
+            
+            let age = 18;
+            let age2 = age;
+
+            let a = {
+                name: 'it.com',
+                protocol: 'https',
+                maxStudentsCount: 10,
+                isOnline: true,
+                students: ['ivan', 'andrey', 'farid'],  //ссылка на обьект
+                classroom: {                            //ссылка на обьект
+                    teacher: {                          //ссылка на обьект
+                        name: 'wew',
+                        age: 18
+                    }
+                }
+            };
+
+            //let b = a; //копирование при помощи ссылки на объект сравние дает true
+            let b = {  //копирование при помощи копирования объекта, но поверхностно shallow copy, не копируютя вложенные объекты
+                ...a   //сравнение дает false, но сравнение вложенных объектов равно true
+            };
+            b.classroom = {
+                ...a.classroom
+            };
+            b.classroom.teacher = {
+                ...a.classroom.teacher
+            }
+            b.students = [
+                ...a.students
+            ];
+            //b.name = 'vk.com';
+            b.students[0] = 'semen';
+            console.log(a, b);
+            console.log(a.classroom === b.classroom);
+            
+            //объекты сравниваются по ссылкам, а не примитивам
+
+        </script>
+    </body>    
+</html>

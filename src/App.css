@@ -1,0 +1,40 @@
+.App {
+  display: grid;
+
+  grid-template-areas:
+    'header header'
+    'nav maincontent'
+    'footer footer';
+
+  grid-template-columns: 20% 1fr;  
+  grid-template-rows: 60px 1fr;
+
+  height: 100vh;
+  
+}
+
+.maincontent{
+  grid-area: maincontent;
+  padding: 1em;
+  background-color: #f6f7fb;
+}
+
+@media all and (max-width: 575px) {
+  .App{
+    grid-template-columns: 1fr;  
+    grid-template-rows: 60px 1fr 1fr;
+
+    grid-template-areas:
+    'header'
+    'nav'
+    'maincontent'
+    'footer';
+  }
+}
+
+.footer{
+  grid-area: footer;
+
+  background-color: white;
+  text-align: center;
+}
