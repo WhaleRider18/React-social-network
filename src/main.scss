@@ -1,3 +1,127 @@
+body{
+  height: 100vh;
+}
+
+/* Variables */
+$base-color: #2F3C4E;
+
+/* Start: Login Page */
+
+.loginPage{
+  background-color: $base-color;
+  background-size: cover;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .card{
+    height: auto;
+    border-radius: 0;
+    margin-bottom: 0;
+    padding: 0;
+
+    .cardHeader{
+      text-align: center;
+      padding: 0;
+      border-bottom: none;
+      h1{
+        font-weight: 400;
+      }
+    }
+
+    .formControl{
+      color: #6e707e;
+      background-color: #fff;
+      border: 1px solid #d1d3e2;
+
+      font-size: .8rem;
+      border-radius: 10rem;
+      padding: .75rem 1rem;
+      width: calc(100% - 2rem);
+    }
+    .cardContent{
+      padding: 2em;
+      form{
+        & > div:last-child{
+          width: 100%;
+          button{
+            font-size: .8rem;
+            border-radius: 10rem;
+            padding: .75rem 1rem;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.logoCard {
+  display: flex;
+  justify-content: center;
+  width: 900px;
+  min-height: 550px;
+
+  & > img{
+    flex: 0 0 50%;
+    max-width: 50%;
+    height: 500px;
+    border-radius: 10px 0 0 10px;
+    min-height: 550px;
+  }
+
+  & > div.card{
+    flex: 0 0 50%;
+    max-width: 50%;
+    justify-content: center;
+    border-radius: 0 10px 10px 0;
+  }
+}
+
+@media (max-width: 992px){
+  .logoCard {
+    width: 90%;
+    & > img{
+      display: none;
+    }
+    & > div.card{
+      flex: 0 0 100%;
+      max-width: 100%;
+      justify-content: center;
+      border-radius: 10px;
+    }
+  }
+}
+
+/* End: Login Page */
+
+
+/* Start: errors */
+
+.error{
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid #f8ccc8;
+  border-radius: 0.35rem;
+  color: #78261f;
+  background-color: #fadbd8;
+  display: block;
+  margin-top: 15px;
+}
+
+/* End: errors */
+
+
+/* Start: forms */
+
+.form-group{
+  margin: 15px 0;
+}
+
 .formControl{
   background-color: #f6f7fb;
   border: none;
@@ -17,6 +141,11 @@
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
 }
+
+/* End: forms */
+
+
+/* Start: buttons */
 
 .btn{
   margin: 15px 0;
@@ -57,6 +186,11 @@
   cursor: auto;
 }
 
+/* End: buttons */
+
+
+/* Start: main-content */
+
 .card{
   margin-bottom: 30px;
   border: 0;
@@ -87,7 +221,7 @@ margin: 0;
 }
 
 .cardHeaderImage{
-background: url(http://react.pixelstrap.com/endless/static/media/social-image.24320ec9.png);
+background: url('./assets/images/social-image.png');
 background-size: cover;
 background-position: 30%;
 height: 300px;
@@ -99,3 +233,5 @@ border-bottom: none;
 .cardContent{
 padding: 1em;
 }
+
+/* End: main-content */

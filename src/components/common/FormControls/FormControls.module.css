@@ -1,0 +1,21 @@
+.error textarea,
+.error input{
+    border: 1px solid #ca6e66 !important;
+}
+
+.error textarea:focus,
+.error input:focus{
+    box-shadow: 0 0 0 0.2rem rgb(250, 219, 216)
+}
+
+.error span {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid #f8ccc8;
+    border-radius: 0.35rem;
+    color: #78261f;
+    background-color: #fadbd8;
+    display: block;
+    margin-top: 15px;
+}

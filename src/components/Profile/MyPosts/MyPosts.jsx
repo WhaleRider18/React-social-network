@@ -1,36 +1,48 @@
 import React from 'react';
+import {Field, reduxForm} from 'redux-form';
+import {required,maxLengthCreator} from '../../../utils/validators/validators';
+import {FormControl} from '../../../components/common/FormControls/FormControls';
 
 import m from './MyPosts.module.css';
 
 import Post from './Post/Post';
 
-const MyPosts = (props) => {
+let maxlength10 = maxLengthCreator(10);
+
+const MyPosts = React.memo((props) => {
 
     let Posts = 
     props.PostData.map( postdates => <Post message={postdates.message} like={postdates.like} key={postdates.id} /> );
 
-    let newPostElement = React.createRef(); //создаем ссылку
-
-    let onAddPost = () => {
-        props.addPost(); 
+    let addNewPost = (values) => {
+        props.addPost(values.newPostBody);
     }
-
-    let onPostChange = () => {
-        let text = newPostElement.current.value;
-        props.updateNewPostText(text);
-    };
 
     return (
         <div className={m.postsWrapper}>
-            <div className={m.enterPost}>
-                <textarea onChange={onPostChange} className = 'formControl' ref={newPostElement} value={props.newPostText} />
-                <button className = 'btn' onClick = { onAddPost } >Send</button>
-            </div>
+            <AddPostFormRedux onSubmit={addNewPost}/>
             <div className={m.posts}>
                 {Posts}
             </div>
         </div>
     );
-}
+});
+
+const AddPostForm = (props) => {
+    return (
+        <form className={m.enterPost} onSubmit={props.handleSubmit}>
+            <Field  component={FormControl}
+                    types={'textarea'}
+                    name={'newPostBody'}
+                    validate = { [required, maxlength10]} />
+            <button className='btn'>Send</button>
+        </form>
+    )
+} 
+
+const AddPostFormRedux = reduxForm({
+    form: 'postAddMessageForm'
+})(AddPostForm)
+
 
 export default MyPosts;

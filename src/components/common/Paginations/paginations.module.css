@@ -1,0 +1,16 @@
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page{
+    display: block;
+    margin: 6px;
+    color: #898989;
+}
+
+.selectedPage{
+    color: #000;
+    font-weight: bold;
+}

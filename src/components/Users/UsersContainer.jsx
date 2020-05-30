@@ -1,25 +1,30 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {compose} from 'redux';
 import Users from './Users';
 import Preloader from '../common/preloader.jsx';
+import { withAuthRedirect } from '../../hoc/WithAuthRedirect';
 
 import {followUser, unfollowUser, setCurrentPage, toggleIsFollowingProgress, getUsers} from "../../redux/usersReducer";
+import {getUsersDataSuperSelector, getPageSize, getTotalUsersCount, getCurrentPage, getIsFetching, getFollowingInProgress} from "../../redux/users-selectors";
 
 class UserApiComponent extends React.Component {
     
     componentDidMount () {
-            this.props.getUsers(this.props.currentPage, this.props.pageSize);
+            const {currentPage, pageSize} = this.props;
+            this.props.getUsers(currentPage, pageSize);
     }
 
     onPageChanged = (pageNumber) => {
+        const pageSize = this.props;
         this.props.setCurrentPage(pageNumber);
-        this.props.getUsers(pageNumber, this.props.pageSize);
+        this.props.getUsers(pageNumber, pageSize);
     };
 
     render() {
         return <>
             { this.props.isFetching ? <Preloader /> : null }
-            <Users   totalUsersCount = {this.props.totalUsersCount}
+            <Users      totalUsersCount = {this.props.totalUsersCount}
                         pageSize = {this.props.pageSize}
                         currentPage = {this.props.currentPage}
                         UsersData = {this.props.UsersData}
@@ -34,7 +39,7 @@ class UserApiComponent extends React.Component {
     }
 };
 
-let mapStateToProps = (state) => {
+/*let mapStateToProps = (state) => {
     return {
         UsersData: state.usersPage.UsersData,
         pageSize: state.usersPage.pageSize,
@@ -43,38 +48,21 @@ let mapStateToProps = (state) => {
         isFetching: state.usersPage.isFetching,
         followingInProgress: state.usersPage.followingInProgress
     }
-} // данные, которые мы берем из store 
+} */ // данные, которые мы берем из store
 
-/*let mapDispatchToProps = (dispatch) => {
+let mapStateToProps = (state) => {
     return {
-        followUser: (userId) => { 
-            dispatch( followUserActionCreator(userId) );
-        },
-        unfollowUser: (userId) => {
-            dispatch( unfollowUserActionCreator(userId) );
-        },
-        setUsers: (users) => {
-            dispatch( setUsersActionCreator(users) );
-        },
-        setCurrentPage: (pageNumber) => {
-            dispatch( setCurrentPageActionCreator(pageNumber) );
-        },
-        setTotalUsersCount: (totalCount) => {
-            dispatch( setTotalUsersCountActionCreator(totalCount) );
-        },
-        toggleIsFetching: (isFetching) => {
-            dispatch( toggleIsFetchingActionCreator(isFetching) );
-        }
+        //UsersData: getUsersData(state),
+        UsersData: getUsersDataSuperSelector(state),
+        pageSize: getPageSize(state),
+        totalUsersCount: getTotalUsersCount(state),
+        currentPage: getCurrentPage(state),
+        isFetching: getIsFetching(state),
+        followingInProgress: getFollowingInProgress(state)
     }
-} */ 
-// коллбеки, которые мы будем dispatch-ить
+} // данные, которые мы берем из store
 
-const UsersContainer = connect(mapStateToProps, {
-    followUser,
-    unfollowUser,
-    setCurrentPage,
-    toggleIsFollowingProgress,
-    getUsers
-})(UserApiComponent); //connect избавляет от создания колбеков с необходимостью их диспатчить
-
-export default UsersContainer;
+export default compose (
+    connect(mapStateToProps, {followUser, unfollowUser, setCurrentPage, toggleIsFollowingProgress, getUsers}),
+    withAuthRedirect
+)(UserApiComponent);

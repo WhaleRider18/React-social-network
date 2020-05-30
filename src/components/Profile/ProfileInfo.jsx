@@ -1,16 +1,20 @@
 import React from 'react';
 import Preloader from '../common/preloader.jsx';
+import userAvatar from '../../assets/images/avatar.png';
+import ProfileStatusWithHooks from './ProfileStatusWithHooks';
+import p from './Profile.module.css';
 
-const ProfileInfo = (props) => {
+const ProfileInfo = ({profile, status, updateStatus, ...props}) => {
 
-    if(!props.profile) {
+    if(!profile) {
         return <Preloader />
     }
 
     return (
         <div>
-            <div><img alt="avatar" src={props.profile.photos.small} /></div>
-            <span>{props.profile.fullName}</span>
+            <div className={p.avatar}><img alt='avatar' src={ profile.photos.small != null ? profile.photos.small : userAvatar}/></div>
+            <span>{profile.fullName}</span>
+            <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
         </div>
     );
 

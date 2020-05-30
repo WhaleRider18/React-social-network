@@ -2,7 +2,7 @@ import {connect} from 'react-redux';
 
 import MyPosts from './MyPosts';
 
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/profileReducer";
+import {addPostActionCreator} from "../../../redux/profileReducer";
 
 
 /*const MyPostsContainer = () => {
@@ -55,12 +55,8 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch/* dispatch, binded на store */) => {
     return {
-        addPost: () => { 
-            dispatch( addPostActionCreator() );
-        },
-        updateNewPostText: (text) => {
-            let action = updateNewPostTextActionCreator(text);
-            dispatch( action );
+        addPost: (newPostBody) => {
+            dispatch( addPostActionCreator(newPostBody) );
         }
     }
 } // коллбеки, которые мы будем dispatch
